@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "ru");
-	long double eps,x,result = 0,n = 0,facres = 1;//eps-погрешность,x-аргумент,result-результат,facres-результат факториала,n-член ряда
+	long double eps, x, result = 0, n = 0, facres = 1;//eps-погрешность,x-аргумент,result-результат,facres-результат факториала,n-член ряда
 	long long maxsteps,fac = 1,k;//maxsteps-максимальное количество членов ряда,fac-число от которого берём факториал
 	char cont;//продолжить или нет
 	do
