@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "en");
-	double eps, x, result = 0, n = 0, facres = 1;//eps-погрешность,x-аргумент,result-результат,facres-результат факториала,n-член ряда
+	double eps, x, result = 0, n = 0, facres = 1, sinusresult;//eps-погрешность,x-аргумент,result-результат,facres-результат факториала,n-член ряда
 	string input;
 	string::size_type sz;
 	long long maxsteps,fac = 1,k;//maxsteps-максимальное количество членов ряда,fac-число от которого берём факториал
@@ -75,7 +75,8 @@ int main()
 		}
 	}
 	cout.precision(6);
-	cout << endl << "Value of the function Sin(x)/x: " << sin(x) / x << endl;
+	sinusresult = sin(x) / x;
+	cout << endl << "Value of the function Sin(x)/x: " << sinusresult << endl;
 	cout << endl << "Result: " << result << endl;
 	cout << endl << "Amount of row members: " << k << endl;
 	cout << "Do you want to continue? (Y(y) - Yes / Another key - No): ";
