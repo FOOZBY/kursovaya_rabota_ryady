@@ -20,7 +20,7 @@ int main()
 	while (good)
 	{
 		for (int i = 0; i < input.length(); i++)
-			if (!isdigit(input[i]) && input[i] != '.')
+			if (!isdigit(input[i]) && input[i] != '.' && input[i] != '-')
 			{
 				cout << "invalid input,please repeat the input: ";
 				cin >> input;
