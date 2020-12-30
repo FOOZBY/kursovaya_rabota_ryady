@@ -67,7 +67,9 @@ int main()
 			fac += 2;
 		}
 		n = powl(-1, k) * powl(x, 2 * k) / facres;
+		cout << k + 1 << " gap " << n << endl;
 		result += n;
+		cout << k + 1 << " result " << result << endl;
 		if (abs(n) < abs(eps))
 		{
 			k++;
