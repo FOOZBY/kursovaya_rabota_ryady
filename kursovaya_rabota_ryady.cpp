@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include <conio.h>
+#include <Windows.h>
 using namespace std;
 
 int main()
@@ -13,7 +14,7 @@ int main()
 	char cont;//продолжить или нет
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+	HANDLE descriptor = GetStdHandle(STD_OUTPUT_HANDLE);
 	do {
 		bool xgood = 1, epsgood = 1, stgood = 1;
 		short key = 0, code = 0;
@@ -25,33 +26,74 @@ int main()
 				key = (key + 4) % 4;
 				code = 0;
 				if (key == 0)
+				{
+					SetConsoleTextAttribute(descriptor, 14);
 					cout << ">Input an argument(x, radians)" << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				else
 					cout << "Input an argument(x, radians)" << endl;
 				if (key == 1)
+				{
+					SetConsoleTextAttribute(descriptor, 14);
 					cout << ">Input inaccuracy(eps)" << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				else
 					cout << "Input inaccuracy(eps)" << endl;
 				if (key == 2)
+				{
+					SetConsoleTextAttribute(descriptor, 14);
 					cout << ">Input the maximum number of row members(maxsteps)" << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				else
 					cout << "Input the maximum number of row members(maxsteps)" << endl;
 				if (key == 3)
+				{
+					SetConsoleTextAttribute(descriptor, 14);
 					cout << ">Exit" << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				else
 					cout << "Exit" << endl;
 				if (xgood)
+				{
+					SetConsoleTextAttribute(descriptor, 4);
 					cout << "x not inputed" << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				else
+				{
+					SetConsoleTextAttribute(descriptor, 2);
 					cout << "x = " << x << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				if (epsgood)
+				{
+					SetConsoleTextAttribute(descriptor, 4);
 					cout << "eps not inputed" << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				else
+				{
+					SetConsoleTextAttribute(descriptor, 2);
 					cout << "eps = " << eps << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				if (stgood)
+				{
+					SetConsoleTextAttribute(descriptor, 4);
 					cout << "maxsteps not inputed" << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
 				else
+				{
+					SetConsoleTextAttribute(descriptor, 2);
 					cout << "maxsteps = " << maxsteps << endl;
+					SetConsoleTextAttribute(descriptor, 7);
+				}
+				cout << "Navigation arrows(up and down) or W and S" << endl;
 				if (code != 13) {
 					code = _getch();
 					if (code == 80 || code == 115)
