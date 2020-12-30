@@ -1,20 +1,64 @@
 ﻿#include <iostream>
+#include <string>
+
 using namespace std;
+
 int main()
 {
-	setlocale(LC_ALL, "ru");
-	long double eps, x, result = 0, n = 0, facres = 1;//eps-погрешность,x-аргумент,result-результат,facres-результат факториала,n-член ряда
+	setlocale(LC_ALL, "en");
+	double eps, x, result = 0, n = 0, facres = 1;//eps-погрешность,x-аргумент,result-результат,facres-результат факториала,n-член ряда
+	string input;
+	string::size_type sz;
 	long long maxsteps,fac = 1,k;//maxsteps-максимальное количество членов ряда,fac-число от которого берём факториал
 	char cont;//продолжить или нет
+	bool good = 1;
 	do
 	{
 	system("cls");
-	cout << "Введите аргумент(x,в радианах): ";
-	cin >> x;
-	cout << endl << "Введите погрешность(eps): ";
-	cin >> eps;
-	cout << endl << "Введите максимальное количество членов ряда(maxsteps): ";
-	cin >> maxsteps;
+	cout << "Input an argument(x, radians): ";
+	cin >> input;
+	while (good)
+	{
+		for (int i = 0; i < input.length(); i++)
+			if (!isdigit(input[i]) && input[i] != '.')
+			{
+				cout << "invalid input,please repeat the input: ";
+				cin >> input;
+				i = 0;
+			}
+		good = 0;
+	}
+	x = stod(input,&sz);
+	cout << endl << "Input inaccuracy(eps): ";
+	cin >> input;
+	good = 1;
+	while (good)
+	{
+		for (int i = 0; i < input.length(); i++)
+			if (!isdigit(input[i]) && input[i] != '.')
+			{
+				cout << "invalid input,please repeat the input: ";
+				cin >> input;
+				i = 0;
+			}
+		good = 0;
+	}
+	eps = stod(input, &sz);
+	cout << endl << "Input the maximum number of row members(maxsteps): ";
+	cin >> input;
+	good = 1;
+	while (good)
+	{
+		for (int i = 0; i < input.length(); i++)
+			if (!isdigit(input[i]))
+			{
+				cout << "invalid input,please repeat the input: ";
+				cin >> input;
+				i = 0;
+			}
+		good = 0;
+	}
+	maxsteps = stoi(input, &sz);
 	for (k = 0; k < maxsteps; k++)
 	{
 		if (k > 0)
@@ -31,10 +75,10 @@ int main()
 		}
 	}
 	cout.precision(6);
-	cout << endl << "Значение функции Sin(x)/x: " << sin(x) / x << endl;
-	cout << endl << "Результат: " << result << endl;
-	cout << endl << "Число шагов: " << k << endl;
-	cout << "Желаете продолжить? (Y(y) - Да / Любая другая клавиша - Нет): ";
+	cout << endl << "Value of the function Sin(x)/x: " << sin(x) / x << endl;
+	cout << endl << "Result: " << result << endl;
+	cout << endl << "Amount of row members: " << k << endl;
+	cout << "Do you want to continue? (Y(y) - Yes / Another key - No): ";
 	cin >> cont;
 	} while (cont == 'Y' || cont == 'y');
 }
